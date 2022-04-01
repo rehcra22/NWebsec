@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
 using NWebsec.Core.Common.HttpHeaders.Configuration;
@@ -10,6 +10,7 @@ namespace NWebsec.Mvc.CommonProject.Tests.TestHelpers
         public bool Equals(ICspSandboxDirectiveConfiguration x, ICspSandboxDirectiveConfiguration y)
         {
             return x.Enabled.Equals(y.Enabled) &&
+                x.AllowDownloads.Equals(y.AllowDownloads) &&
                 x.AllowForms.Equals(y.AllowForms) &&
                 x.AllowModals.Equals(y.AllowModals) &&
                 x.AllowOrientationLock.Equals(y.AllowOrientationLock) &&

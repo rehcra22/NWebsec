@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 using System.Linq;
 using NWebsec.Core.Common.HttpHeaders.Configuration;
@@ -187,6 +187,7 @@ namespace NWebsec.Mvc.CommonProject.Tests.Helpers
         {
             var firstDirective = new CspSandboxDirectiveConfiguration
             {
+                AllowDownloads = true,
                 AllowForms = true,
                 AllowModals = true,
                 AllowOrientationLock = true,

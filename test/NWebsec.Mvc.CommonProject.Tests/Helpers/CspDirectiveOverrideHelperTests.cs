@@ -318,6 +318,30 @@ namespace NWebsec.Mvc.CommonProject.Tests.Helpers
 
             Assert.Equal(expectedResult, newConfig.Enabled);
         }
+        
+        [Theory]
+        [MemberData(nameof(FalseThenTrue))]
+        public void GetOverridenCspSandboxConfig_AllowDownloadsOverride_OverridesAllowDownloads(bool expectedResult)
+        {
+            var directiveConfig = new CspSandboxDirectiveConfiguration { AllowDownloads = !expectedResult };
+            var directiveOverride = new CspSandboxOverride { AllowDownloads = expectedResult };
+
+            var newConfig = _overrideHelper.GetOverridenCspSandboxConfig(directiveOverride, directiveConfig);
+
+            Assert.Equal(expectedResult, newConfig.AllowDownloads);
+        }
+
+        [Theory]
+        [MemberData(nameof(FalseThenTrue))]
+        public void GetOverridenCspSandboxConfig_AllowDownloadsNotSet_InheritsAllowDownloads(bool expectedResult)
+        {
+            var directiveConfig = new CspSandboxDirectiveConfiguration { AllowDownloads = expectedResult };
+            var directiveOverride = new CspSandboxOverride();
+
+            var newConfig = _overrideHelper.GetOverridenCspSandboxConfig(directiveOverride, directiveConfig);
+
+            Assert.Equal(expectedResult, newConfig.AllowDownloads);
+        }
 
         [Theory]
         [MemberData(nameof(FalseThenTrue))]

@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +22,7 @@ namespace NWebsec.Mvc.Common.Helpers
             var result = directiveConfig ?? new CspDirectiveConfiguration();
 
             result.Enabled = directiveOverride.Enabled;
+            
 
             if (directiveOverride.None.HasValue)
             {
@@ -80,6 +81,11 @@ namespace NWebsec.Mvc.Common.Helpers
             var result = directiveConfig ?? new CspSandboxDirectiveConfiguration();
 
             result.Enabled = directiveOverride.Enabled;
+            
+            if (directiveOverride.AllowDownloads.HasValue)
+            {
+                result.AllowDownloads = (bool)directiveOverride.AllowDownloads;
+            }
 
             if (directiveOverride.AllowForms.HasValue)
             {

@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 using System.Configuration;
 using NWebsec.Core.Common.HttpHeaders.Configuration;
@@ -83,6 +83,13 @@ namespace NWebsec.Modules.Configuration.Csp
         {
             get => (bool)this["allow-top-navigation"];
             set => this["allow-top-navigation"] = value;
+        }
+        
+        [ConfigurationProperty("allow-downloads", IsRequired = false, DefaultValue = false)]
+        public bool AllowDownloads
+        {
+            get => (bool)this["allow-downloads"];
+            set => this["allow-downloads"] = value;
         }
     }
 }

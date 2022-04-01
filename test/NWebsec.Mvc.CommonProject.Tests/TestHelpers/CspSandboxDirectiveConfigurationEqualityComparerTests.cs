@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 using NWebsec.Core.Common.HttpHeaders.Configuration;
 using Xunit;
@@ -27,6 +27,16 @@ namespace NWebsec.Mvc.CommonProject.Tests.TestHelpers
         {
             var firstConfig = new CspSandboxDirectiveConfiguration { Enabled = false };
             var secondConfig = new CspSandboxDirectiveConfiguration { Enabled = true };
+
+            Assert.False(_equalityComparer.Equals(firstConfig, secondConfig));
+            Assert.False(_equalityComparer.Equals(secondConfig, firstConfig));
+        }
+        
+        [Fact]
+        public void Equals_AllowDownloadsDiffers_ReturnsFalse()
+        {
+            var firstConfig = new CspSandboxDirectiveConfiguration { AllowDownloads = false };
+            var secondConfig = new CspSandboxDirectiveConfiguration { AllowDownloads = true };
 
             Assert.False(_equalityComparer.Equals(firstConfig, secondConfig));
             Assert.False(_equalityComparer.Equals(secondConfig, firstConfig));

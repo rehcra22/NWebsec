@@ -1,4 +1,4 @@
-// Copyright (c) André N. Klingsheim. See License.txt in the project root for license information.
+// Copyright (c) AndrÃ© N. Klingsheim. See License.txt in the project root for license information.
 
 namespace NWebsec.Core.Common.HttpHeaders.Configuration
 {
@@ -12,6 +12,11 @@ namespace NWebsec.Core.Common.HttpHeaders.Configuration
         ///     made.
         /// </summary>
         bool Enabled { get; set; }
+        /// <summary>
+        ///     Infrastructure. Not intended to be used by your code directly. An attempt to hide this from Intellisense has been
+        ///     made.
+        /// </summary>
+        bool AllowDownloads { get; set; }
         /// <summary>
         ///     Infrastructure. Not intended to be used by your code directly. An attempt to hide this from Intellisense has been
         ///     made.
